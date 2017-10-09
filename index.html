@@ -1,0 +1,101 @@
+<html><head><title>Index</title><link href="/main.3d73ec7037103cc03b2cb5a9c8123a1d.css" rel="stylesheet"/><link rel="stylesheet" href="//rawgit.com/dvhbru/themes/master/dist/main.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css"/></head><body><div class="b-usage b-content textLg"><a href="https://github.com/dvhbru/webpack" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><div class="section"><h1>@dvhb/webpack</h1><div class="form-group form-group_marginSm"><div class="textLg"></div></div><p>Build tool with zero initial configuration</p><p>Just use<nobr class="textGreen">&nbsp;dvhb-webpack init&nbsp;</nobr>for create and develop new project.</p><div class="textLg">Features</div><div class="list"><div class="list__item">Webpack 3</div><div class="list__item">Babel, ES2015 + modules, Stage 0 preset</div><div class="list__item">Optional static views with pug template engine (for static websites)</div></div></div></div><div class="b-content textLg"><div class="section"><h2>Quick Overview</h2><p class="textGreen">npm i @dvhb/webpack -g</p><p class="textGreen">mkdir my-app && cd my-app</p><p class="textGreen">dvhb-webpack init</p></div></div><div class="b-usage b-content"><div class="section"><h1>Configuration</h1>
+<p>You can change settings in the <code>dvhb.config.js</code> file in your project’s root folder.</p>
+<h2><code>title</code></h2>
+<p>Type: <code>String</code>, default: <code>Dvhb Webpack Starter kit</code></p>
+<p>Title for index.html.</p>
+<h2><code>sourceDir</code></h2>
+<p>Type: <code>String</code>, default: <code>src</code></p>
+<p>Folder for source code.</p>
+<h2><code>distDir</code></h2>
+<p>Type: <code>String</code>, default: <code>dist</code></p>
+<p>The output directory.</p>
+<h2><code>publicPath</code></h2>
+<p>Type: <code>String</code>, default: <code>/</code></p>
+<p>Public path for assets.</p>
+<h2><code>viewsDir</code></h2>
+<p>Type: <code>String</code>, default: <code>src/views</code></p>
+<p>Folder for <code>pug</code> templates.</p>
+<h2><code>staticSite</code></h2>
+<p>Type: <code>Boolean</code>, default: <code>false</code></p>
+<p>Enable static site mode with express server.</p>
+<h2><code>assetsDir</code></h2>
+<p>Type: <code>String</code> or <code>Array</code>, optional</p>
+<p>Your application static assets folder, will be accessible as <code>/</code> in the dev-server or prod-server.</p>
+<h2><code>serverHost</code></h2>
+<p>Type: <code>String</code>, default: <code>localhost</code></p>
+<p>Development server host name.</p>
+<h2><code>serverHost</code></h2>
+<p>Type: <code>Number</code>, default: <code>3000</code></p>
+<p>Dev server port.</p>
+<h2><code>eslintrc</code></h2>
+<p>Type: <code>String</code>, default: <code>.eslintrc</code></p>
+<p>Use ESLint config <a href="@dvhb/eslint-config">https://github.com/dvhbru/eslint-config</a>.</p>
+<p>You can use your own eslint config if exists <code>&lt;project_dir&gt;/.eslintrc</code></p>
+<h2><code>modernizrrc</code></h2>
+<p>Type: <code>String</code>, default: <code>src/.modernizrrc</code></p>
+<p>Use modernizer in application.</p>
+<h2><code>templateVars</code></h2>
+<p>Type: <code>Object</code>, default: <code>{}</code></p>
+<p>Template global vars, useful for google analitics and other specific data.</p>
+<h2><code>spa</code></h2>
+<p>Type: <code>String</code>, default: <code>false</code></p>
+<p>Use spa routing with html5mode.</p>
+<h2><code>extendEntries</code></h2>
+<p>Type: <code>Object</code></p>
+<p>Extend app entries. Example for <code>src/extEntry.js</code>:</p>
+<pre><code class="language-javascript">module.exports = {
+  // ...
+  extendEntries: {
+    extEntry: 'extEntry'
+  },
+};
+</code></pre>
+<h2><code>extendWebpackConfig</code></h2>
+<p>Type: <code>Function</code>, optional</p>
+<p>Function that allows you to extend Webpack config:</p>
+<pre><code class="language-javascript">module.exports = {
+  const merge = require('webpack-merge');
+  const path = require('path');
+
+  // ...
+  extendWebpackConfig(webpackConfig, env) {
+    const dir = path.resolve(__dirname, 'src');
+
+    // @see https://webpack.js.org/configuration/
+    const commonConfig = merge(webpackConfig, {
+      module: {
+        rules: [
+          {
+            test: /\.&lt;extention&gt;?$/,
+            include: dir,
+            loader: '&lt;loader&gt;',
+          }
+        ],
+      },
+
+      plugins: []
+    });
+
+    const productionConfig = merge({});
+
+    const developmentConfig = merge({});
+
+    return (env === 'production')? merge(commonConfig, productionConfig) : merge(commonConfig, developmentConfig);
+  }
+};
+</code></pre>
+<h2><code>configureServer</code></h2>
+<p>Type: <code>Function</code>, optional</p>
+<p>Function that allows you to add endpoints to the underlying <code>express</code> server:</p>
+<pre><code class="language-javascript">module.exports = {
+  // ...
+  configureServer(app) {
+     // `app` is the instance of the express server running dvhb-webpack
+    app.get('/custom-endpoint', (req, res) =&gt; {
+      res.status(200).send({ response: 'Server invoked' });
+    });
+  },
+};
+</code></pre>
+</div></div><div class="b-content b-content"><div class="section"><h2>License</h2><div class="textLg"><a href="https://en.wikipedia.org/wiki/MIT_License" target="_blank">MIT License</a> © <a href="https://dvhb.ru" target="_blank">dvhb</a></div></div></div><script src="/vendor.db318d05a44cc46b0f52.js"></script><script src="/main.ec98e02a16b1b404bd81.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();
+</script></body></html>
