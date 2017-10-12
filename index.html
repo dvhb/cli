@@ -41,7 +41,7 @@
 <p>Type: <code>String</code>, default: <code>false</code></p>
 <p>Use spa routing with html5mode.</p>
 <h2><code>extendEntries</code></h2>
-<p>Type: <code>Object</code></p>
+<p>Type: <code>Object</code>, optional</p>
 <p>Extend app entries. Example for <code>src/extEntry.js</code>:</p>
 <pre><code class="language-javascript">module.exports = {
   // ...
@@ -58,6 +58,12 @@
   const path = require('path');
 
   // ...
+  /**
+   * Extend webpack configuration
+   *
+   * @param webpackConfig {Object} – webpack config
+   * @param env {String} – environment, example dvhb-webpack build --app-env=development
+   */
   extendWebpackConfig(webpackConfig, env) {
     const dir = path.resolve(__dirname, 'src');
 
@@ -89,13 +95,41 @@
 <p>Function that allows you to add endpoints to the underlying <code>express</code> server:</p>
 <pre><code class="language-javascript">module.exports = {
   // ...
-  configureServer(app) {
-     // `app` is the instance of the express server running dvhb-webpack
+  /**
+   * Extend express server behavior
+   *
+   * @param app – instance of the express server running dvhb-webpack
+   * @param env {String} – environment, example dvhb-webpack build --app-env=development
+   */
+  configureServer(app, env) {
     app.get('/custom-endpoint', (req, res) =&gt; {
       res.status(200).send({ response: 'Server invoked' });
     });
+
+    // use items variable in templates
+    app.locals.items = require('./src/items.json');
   },
 };
 </code></pre>
+</div></div><div class="b-content b-content"><div class="section"><h1>CLI commands and options</h1>
+<h2><code>dvhb-webpack init</code></h2>
+<p>Init new project.</p>
+<h2><code>dvhb-webpack server</code></h2>
+<p>Run dev/prod server.</p>
+<h2><code>dvhb-webpack build</code></h2>
+<p>Generate a dist bundle for project.</p>
+<h1>CLI options</h1>
+<h2><code>--config &lt;file&gt;</code></h2>
+<p>Specify path to the config file.</p>
+<h2><code>--verbose</code></h2>
+<p>Print debug information.</p>
+<h2><code>--config &lt;file&gt;</code></h2>
+<p>Specify path to the config file.</p>
+<h2><code>--port</code></h2>
+<p>Server port, default: <code>3000</code>.</p>
+<h2><code>--env</code></h2>
+<p>Environment, default: <code>development</code>.</p>
+<h2><code>--app-env</code></h2>
+<p>Application environment, <em>experimental option</em>.</p>
 </div></div><div class="b-content b-content"><div class="section"><h2>License</h2><div class="textLg"><a href="https://en.wikipedia.org/wiki/MIT_License" target="_blank">MIT License</a> © <a href="https://dvhb.ru" target="_blank">dvhb</a></div></div></div><script src="/vendor.db318d05a44cc46b0f52.js"></script><script src="/main.ec98e02a16b1b404bd81.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script><script>hljs.initHighlightingOnLoad();
 </script></body></html>
