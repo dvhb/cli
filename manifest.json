@@ -1,5 +1,5 @@
 {
-  "main.css": "/main.3d73ec7037103cc03b2cb5a9c8123a1d.css",
-  "main.js": "/main.ec98e02a16b1b404bd81.js",
-  "vendor.js": "/vendor.db318d05a44cc46b0f52.js"
+  "main.css": "https://dvhbru.github.io/webpack/main.3d73ec7037103cc03b2cb5a9c8123a1d.css",
+  "main.js": "https://dvhbru.github.io/webpack/main.ec98e02a16b1b404bd81.js",
+  "vendor.js": "https://dvhbru.github.io/webpack/vendor.db318d05a44cc46b0f52.js"
 }
