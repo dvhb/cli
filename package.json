@@ -135,9 +135,9 @@
     "pregh-pages": "ASSET_PATH=\"https://dvhb.github.io/webpack/\" npm run build",
     "phantomjs": "phantomjs test/phantom.js examples/basic/dist/index.html",
     "gulp:templates": "node_modules/gulp/bin/gulp.js templates --gulpfile gulp/gulpfile.js --app-env=development --config ../examples/spa-angular/dvhb.config.js",
-    "gulp:gzip": "node_modules/gulp/bin/gulp.js gzip --gulpfile gulp/gulpfile.js --app-env=development --config ../examples/spa-angular/dvhb.config.js"
+    "gulp:gzip": "node_modules/gulp/bin/gulp.js gzip --gulpfile gulp/gulpfile.js --app-env=development --config ../examples/spa-angular/dvhb.config.js",
+    "precommit": "lint-staged"
   },
-  "pre-commit": "lint-staged",
   "keywords": [
     "webpack",
     "dvhb",
