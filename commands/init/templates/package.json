@@ -21,7 +21,7 @@
     "precommit": "lint-staged"
   },
   "devDependencies": {
-    "@dvhb/webpack": "1.6.7-next.5"
+    "@dvhb/webpack": "1.6.7-next.6"
   },
   "dependencies": {
     "jquery": "^3.3.1"

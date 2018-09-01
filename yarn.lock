@@ -625,9 +625,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@dvhb/eslint-config@^1.0.2-prettier.1":
-  version "1.0.2-prettier.1"
-  resolved "https://registry.yarnpkg.com/@dvhb/eslint-config/-/eslint-config-1.0.2-prettier.1.tgz#7dec1689a9385b3e7b530df94d905ccc892c4460"
+"@dvhb/eslint-config@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@dvhb/eslint-config/-/eslint-config-1.0.3.tgz#ee0a39364f041f62739a513879252f3ed4041a5e"
   dependencies:
     babel-eslint "7.1.1"
     eslint-config-prettier "^3.0.1"
