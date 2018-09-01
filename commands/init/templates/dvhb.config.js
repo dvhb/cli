@@ -8,7 +8,7 @@ module.exports = {
   templateVars: {
     googleAnalytics: {
       id: 'XXX',
-    }
+    },
   },
 
   /**
@@ -37,16 +37,16 @@ module.exports = {
           _: 'lodash',
           $: 'jquery',
           jQuery: 'jquery',
-          'window.jQuery': 'jquery'
+          'window.jQuery': 'jquery',
         }),
-      ]
+      ],
     });
 
     const productionConfig = merge({});
 
     const developmentConfig = merge({});
 
-    return (env === 'production')? merge(commonConfig, productionConfig) : merge(commonConfig, developmentConfig);
+    return env === 'production' ? merge(commonConfig, productionConfig) : merge(commonConfig, developmentConfig);
   },
 
   /**

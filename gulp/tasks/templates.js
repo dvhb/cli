@@ -6,25 +6,24 @@ const filter = require('gulp-filter');
 const utils = require('../../scripts/utils/utils');
 const config = require('../../scripts/config');
 
-gulp.task('templates', function () {
-  return gulp.src(config.viewsDir + '/**/*.pug')
+gulp.task('templates', function() {
+  return gulp
+    .src(config.viewsDir + '/**/*.pug')
     .pipe(excludeTemplates(config))
-    .pipe(pug({
-      locals: getTemplateLocals(config)
-    }))
+    .pipe(
+      pug({
+        locals: getTemplateLocals(config),
+      }),
+    )
     .pipe(gulp.dest(config.distDir));
 });
 
 function excludeTemplates(config) {
-  let f = [
-    '**',
-    '!**/partials/**',
-    '!**/_partials/**',
-  ];
+  let f = ['**', '!**/partials/**', '!**/_partials/**'];
 
   //exclude build templates in html folder (it's dev markup templates)
   if (config.appEnv != 'development') {
-    f.push('!**/html/**')
+    f.push('!**/html/**');
   }
 
   return filter(f);
@@ -41,7 +40,7 @@ function getTemplateLocals(config) {
 
   if (config.env === 'production') {
     if (utils.isFileExists(manifestDir)) {
-      locals.manifest = require(manifestDir)
+      locals.manifest = require(manifestDir);
     }
   }
 

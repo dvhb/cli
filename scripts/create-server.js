@@ -14,14 +14,16 @@ module.exports = function createServer(config, env) {
 
   if (env === 'development') {
     // register webpack middlewares
-    app.use(require('webpack-dev-middleware')(compiler, {
-      noInfo: false,
-      stats: webpackConfig.stats || {
-        colors: colorsSupported,
-        chunks: false,
-        modules: false
-      },
-    }));
+    app.use(
+      require('webpack-dev-middleware')(compiler, {
+        noInfo: false,
+        stats: webpackConfig.stats || {
+          colors: colorsSupported,
+          chunks: false,
+          modules: false,
+        },
+      }),
+    );
 
     app.use(require('webpack-hot-middleware')(compiler));
   }
@@ -32,7 +34,7 @@ module.exports = function createServer(config, env) {
       app.use(express.static(config.assetsDir));
     }
     if (Array.isArray(config.assetsDir)) {
-      config.assetsDir.forEach(function (path) {
+      config.assetsDir.forEach(function(path) {
         app.use(express.static(path));
       });
     }
@@ -42,39 +44,41 @@ module.exports = function createServer(config, env) {
   if (config.viewsDir) {
     app.set('view engine', 'pug');
     app.set('views', config.viewsDir);
-    app.set("view options", { layout: false });
+    app.set('view options', { layout: false });
 
     // user defined customizations
     if (config.configureServer) {
       config.configureServer(app, env);
     }
 
-    app.use(pugStatic({
-      root: config.viewsDir
-    }));
+    app.use(
+      pugStatic({
+        root: config.viewsDir,
+      }),
+    );
 
     //assets manifest. Used in production mode only
     if (env === 'production') {
       const manifestDir = config.distDir + '/manifest.json';
       if (utils.isFileExists(manifestDir)) {
-        app.locals.manifest = require(manifestDir)
+        app.locals.manifest = require(manifestDir);
       }
     }
 
     //template global variables
     app.locals.templateVars = config.templateVars;
-    app.locals.publicPath = (env === 'production')? config.publicPath : '/';
+    app.locals.publicPath = env === 'production' ? config.publicPath : '/';
 
     if (config.spa) {
       //spa entry for all routes
-      app.use(function (req, res) {
+      app.use(function(req, res) {
         res.status(200);
         res.render('index');
       });
     } else {
       //404 error handler
       if (utils.isFileExists(config.viewsDir + '/404/index.pug')) {
-        app.use(function (req, res) {
+        app.use(function(req, res) {
           res.status(404);
           res.render('404');
         });

@@ -9,7 +9,7 @@ helpers
     appTitle: 'Test App',
     packageName: 'test-app',
     author: 'asu@dvhb.ru',
-    description: 'Test App'
+    description: 'Test App',
   })
   .toPromise()
   .then(dir => {
