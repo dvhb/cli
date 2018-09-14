@@ -139,7 +139,7 @@ module.exports = {
   /**
    * Extend express server behavior
    *
-   * @param app – instance of the express server running dvhb-webpack
+   * @param app – instance of the express server
    * @param env {String} – environment
    */
   configureServer(app, env) {

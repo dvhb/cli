@@ -2,24 +2,24 @@
   "name": "webpack-starter-kit-basic-example",
   "description": "Webpack Starter kit basic example",
   "version": "1.0.0",
-  "homepage": "https://github.com/dvhb/webpack.git",
+  "homepage": "https://github.com/dvhb/cli.git",
   "author": "team@dvhb.ru",
   "repository": {
     "type": "git",
-    "url": "git://github.com/dvhb/webpack.git"
+    "url": "git://github.com/dvhb/cli.git"
   },
   "license": "MIT",
   "engines": {
     "node": ">=6"
   },
   "devDependencies": {
-    "@dvhb/webpack": "1.6.4"
+    "@dvhb/cli": "1.6.4"
   },
   "scripts": {
-    "dev": "dvhb-webpack server",
+    "dev": "dvhb server",
     "build": "npm run build:prod",
-    "build:dev": "dvhb-webpack build --app-env=development",
-    "build:prod": "dvhb-webpack build --app-env=production"
+    "build:dev": "dvhb build --app-env=development",
+    "build:prod": "dvhb build --app-env=production"
   },
   "dependencies": {
     "jquery": "^3.3.1"

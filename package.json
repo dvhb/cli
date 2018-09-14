@@ -1,23 +1,23 @@
 {
-  "name": "@dvhb/webpack",
-  "description": "dvhb starter kit for project",
-  "homepage": "https://github.com/dvhb/webpack.git",
-  "version": "1.6.7-next.6",
+  "name": "@dvhb/cli",
+  "description": "dvhb build tool for project",
+  "homepage": "https://github.com/dvhb/cli.git",
+  "version": "1.6.7",
   "author": {
     "name": "Aleksey Subbotenko",
     "url": "https://dvhb.ru/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvhb/webpack.git"
+    "url": "https://github.com/dvhb/cli.git"
   },
   "bugs": {
-    "url": "https://github.com/dvhb/webpack/issues"
+    "url": "https://github.com/dvhb/cli/issues"
   },
   "license": "MIT",
   "main": "scripts/index.js",
   "bin": {
-    "dvhb-webpack": "bin/webpack.js"
+    "dvhb": "bin/cli.js"
   },
   "files": [
     "docs",
@@ -117,20 +117,20 @@
     "yeoman-test": "^1.5.0"
   },
   "scripts": {
-    "init": "bin/webpack.js init",
+    "init": "bin/cli.js init",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:init": "node fixture.js",
     "start": "npm run dev:basic",
-    "dev:basic": "bin/webpack.js server --config examples/basic/dvhb.config.js --verbose",
-    "dev:static-site": "bin/webpack.js server --config examples/static-site/dvhb.config.js --verbose",
-    "dev:spa-angular": "bin/webpack.js server --config examples/spa-angular/dvhb.config.js --verbose",
-    "start:static-site": "bin/webpack.js server --config examples/static-site/dvhb.config.js --env=production",
+    "dev:basic": "bin/cli.js server --config examples/basic/dvhb.config.js --verbose",
+    "dev:static-site": "bin/cli.js server --config examples/static-site/dvhb.config.js --verbose",
+    "dev:spa-angular": "bin/cli.js server --config examples/spa-angular/dvhb.config.js --verbose",
+    "start:static-site": "bin/cli.js server --config examples/static-site/dvhb.config.js --env=production",
     "prestart:static-site": "npm run build:static-site",
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "lint-staged": "lint-staged",
-    "build": "bin/webpack.js build --config examples/basic/dvhb.config.js --verbose --app-env=development",
-    "build:static-site": "bin/webpack.js build --config examples/static-site/dvhb.config.js --verbose --app-env=development",
-    "build:spa-angular": "bin/webpack.js build --config examples/spa-angular/dvhb.config.js --verbose --app-env=development",
+    "build": "bin/cli.js build --config examples/basic/dvhb.config.js --verbose --app-env=development",
+    "build:static-site": "bin/cli.js build --config examples/static-site/dvhb.config.js --verbose --app-env=development",
+    "build:spa-angular": "bin/cli.js build --config examples/spa-angular/dvhb.config.js --verbose --app-env=development",
     "gh-pages": "gh-pages -d examples/basic/dist",
     "pregh-pages": "ASSET_PATH=\"https://dvhb.github.io/webpack/\" npm run build",
     "phantomjs": "phantomjs test/phantom.js examples/basic/dist/index.html",

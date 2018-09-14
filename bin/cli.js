@@ -94,7 +94,7 @@ function commandHelp() {
   console.log([
     chalk.underline('Usage'),
     '',
-    '    ' + chalk.bold('dvhb-webpack') + ' ' + chalk.cyan('<command>') + ' ' + chalk.yellow('[<options>]'),
+    '    ' + chalk.bold('dvhb') + ' ' + chalk.cyan('<command>') + ' ' + chalk.yellow('[<options>]'),
     '',
     chalk.underline('Commands'),
     '',
