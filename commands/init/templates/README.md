@@ -18,7 +18,7 @@
 
 `npm run dev`
 
-> Run development mode via [@dvhb/webpack](https://github.com/dvhb/webpack) build tool.
+> Run development mode via [@dvhb/cli](https://github.com/dvhb/cli) build tool.
 
 `npm run build`
 

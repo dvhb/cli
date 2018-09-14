@@ -5,37 +5,36 @@ const path = require('path');
 const ip = require('ip');
 const pkg = require('../../package');
 
-module.exports.isDirectoryExists = function (dir) {
+module.exports.isDirectoryExists = function(dir) {
   try {
     const stats = fs.lstatSync(dir);
     if (stats.isDirectory()) {
       return true;
     }
-  }
-  finally {
+  } finally {
     /* */
   }
   return false;
 };
 
-module.exports.isFileExists = function (file) {
+module.exports.isFileExists = function(file) {
   return fs.existsSync(file);
 };
 
-module.exports.isGitExists = function (gitDir) {
+module.exports.isGitExists = function(gitDir) {
   return fs.existsSync(path.resolve(gitDir, '.git'));
 };
 
-module.exports.getNetworkIp = function () {
+module.exports.getNetworkIp = function() {
   try {
     const ipAddress = ip.address();
-    return ipAddress
+    return ipAddress;
   } catch (err) {
-    return null
+    return null;
   }
 };
 
-module.exports.getProjectLogo = function () {
+module.exports.getProjectLogo = function() {
   /* eslint-disable */
   return [
     "     _       _     _                       _                      _    ",

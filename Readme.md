@@ -1,4 +1,4 @@
-# Dvhb Webpack with zero initial configuration
+# Build tool with zero initial configuration
 
 ## Features
 
@@ -9,7 +9,7 @@
 ## Install in existing project
 
 ```bash
-npm install --save-dev @dvhb/webpack
+npm install --save-dev @dvhb/cli
 ```
 
 Add scripts to package.json
@@ -17,13 +17,13 @@ Add scripts to package.json
 ```bash
 "scripts": {
   ...
-  "start": "dvhb-webpack server",
-  "build": "dvhb-webpack build"
+  "start": "dvhb server",
+  "build": "dvhb build"
   ...
 }
 ```
 
-See basic starter project for more details [examples/basic](https://github.com/dvhb/webpack/tree/master/examples/basic).
+See basic starter project for more details [examples/basic](https://github.com/dvhb/cli/tree/master/examples/basic).
 
 ## Workflow
 

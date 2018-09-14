@@ -1,23 +1,23 @@
 {
-  "name": "@dvhb/webpack",
-  "description": "dvhb starter kit for project",
-  "homepage": "https://github.com/dvhb/webpack.git",
-  "version": "1.6.6",
+  "name": "@dvhb/cli",
+  "description": "dvhb build tool for project",
+  "homepage": "https://github.com/dvhb/cli.git",
+  "version": "1.6.7",
   "author": {
     "name": "Aleksey Subbotenko",
     "url": "https://dvhb.ru/"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvhb/webpack.git"
+    "url": "https://github.com/dvhb/cli.git"
   },
   "bugs": {
-    "url": "https://github.com/dvhb/webpack/issues"
+    "url": "https://github.com/dvhb/cli/issues"
   },
   "license": "MIT",
   "main": "scripts/index.js",
   "bin": {
-    "dvhb-webpack": "bin/webpack.js"
+    "dvhb": "bin/cli.js"
   },
   "files": [
     "docs",
@@ -45,7 +45,7 @@
     "@babel/preset-react": "7.0.0-beta.32",
     "@babel/preset-stage-2": "7.0.0-beta.32",
     "@babel/register": "^7.0.0-beta.32",
-    "@dvhb/eslint-config": "*",
+    "@dvhb/eslint-config": "^1.0.3",
     "babel-eslint": "^8.0.2",
     "babel-loader": "8.0.0-beta.0",
     "babel-plugin-lodash": "^3.3.2",
@@ -66,9 +66,11 @@
     "gulp-gzip": "^1.4.0",
     "gulp-pug": "^3.2.0",
     "html-webpack-plugin": "^2.29.0",
+    "husky": "^0.14.3",
     "ip": "^1.1.5",
     "json-loader": "^0.5.4",
     "jstransformer-markdown-it": "^2.0.0",
+    "lint-staged": "^7.2.2",
     "lodash": "^4.17.4",
     "minimatch": "^3.0.2",
     "minimist": "1.2.0",
@@ -111,32 +113,31 @@
   "devDependencies": {
     "cross-env": "~3.1.3",
     "gh-pages": "~0.11.0",
-    "lint-staged": "~3.2.5",
     "mock-require": "~1.3.0",
     "yeoman-test": "^1.5.0"
   },
   "scripts": {
-    "init": "bin/webpack.js init",
+    "init": "bin/cli.js init",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:init": "node fixture.js",
     "start": "npm run dev:basic",
-    "dev:basic": "bin/webpack.js server --config examples/basic/dvhb.config.js --verbose",
-    "dev:static-site": "bin/webpack.js server --config examples/static-site/dvhb.config.js --verbose",
-    "dev:spa-angular": "bin/webpack.js server --config examples/spa-angular/dvhb.config.js --verbose",
-    "start:static-site": "bin/webpack.js server --config examples/static-site/dvhb.config.js --env=production",
+    "dev:basic": "bin/cli.js server --config examples/basic/dvhb.config.js --verbose",
+    "dev:static-site": "bin/cli.js server --config examples/static-site/dvhb.config.js --verbose",
+    "dev:spa-angular": "bin/cli.js server --config examples/spa-angular/dvhb.config.js --verbose",
+    "start:static-site": "bin/cli.js server --config examples/static-site/dvhb.config.js --env=production",
     "prestart:static-site": "npm run build:static-site",
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "lint-staged": "lint-staged",
-    "build": "bin/webpack.js build --config examples/basic/dvhb.config.js --verbose --app-env=development",
-    "build:static-site": "bin/webpack.js build --config examples/static-site/dvhb.config.js --verbose --app-env=development",
-    "build:spa-angular": "bin/webpack.js build --config examples/spa-angular/dvhb.config.js --verbose --app-env=development",
+    "build": "bin/cli.js build --config examples/basic/dvhb.config.js --verbose --app-env=development",
+    "build:static-site": "bin/cli.js build --config examples/static-site/dvhb.config.js --verbose --app-env=development",
+    "build:spa-angular": "bin/cli.js build --config examples/spa-angular/dvhb.config.js --verbose --app-env=development",
     "gh-pages": "gh-pages -d examples/basic/dist",
     "pregh-pages": "ASSET_PATH=\"https://dvhb.github.io/webpack/\" npm run build",
     "phantomjs": "phantomjs test/phantom.js examples/basic/dist/index.html",
     "gulp:templates": "node_modules/gulp/bin/gulp.js templates --gulpfile gulp/gulpfile.js --app-env=development --config ../examples/spa-angular/dvhb.config.js",
-    "gulp:gzip": "node_modules/gulp/bin/gulp.js gzip --gulpfile gulp/gulpfile.js --app-env=development --config ../examples/spa-angular/dvhb.config.js"
+    "gulp:gzip": "node_modules/gulp/bin/gulp.js gzip --gulpfile gulp/gulpfile.js --app-env=development --config ../examples/spa-angular/dvhb.config.js",
+    "precommit": "lint-staged"
   },
-  "pre-commit": "lint-staged",
   "keywords": [
     "webpack",
     "dvhb",

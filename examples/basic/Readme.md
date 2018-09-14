@@ -1,9 +1,9 @@
-# @dvhb/webpack basic starter project
+# @dvhb/cli basic starter project
 
 ## Start development mode:
 
 ```
-git clone https://github.com/dvhb/webpack.git
+git clone https://github.com/dvhb/cli.git
 cd webpack/examples/basic
 npm i
 npm run dev

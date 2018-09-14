@@ -6,15 +6,22 @@
   "engines": {
     "node": ">=6"
   },
-  "devDependencies": {
-    "@dvhb/webpack": "1.6.5-beta.19"
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint --no-ignore --fix",
+      "git add --force"
+    ]
   },
   "scripts": {
-    "dev": "dvhb-webpack server",
+    "dev": "dvhb server",
     "build": "npm run build:prod",
-    "build:dev": "dvhb-webpack build --app-env=development",
-    "build:prod": "dvhb-webpack build --app-env=production",
-    "update": "npm i --save-dev @dvhb/webpack@latest"
+    "build:dev": "dvhb build --app-env=development",
+    "build:prod": "dvhb build --app-env=production",
+    "update": "npm i --save-dev @dvhb/cli@latest",
+    "precommit": "lint-staged"
+  },
+  "devDependencies": {
+    "@dvhb/cli": "1.6.7"
   },
   "dependencies": {
     "jquery": "^3.3.1"

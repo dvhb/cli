@@ -39,9 +39,9 @@ const DEFAULT_CONFIG = {
   templateVars: {},
   gzip: {
     src: '**/*.{html,xml,json,css,js,js.map,css.map}',
-    options: {}
+    options: {},
   },
-  appEnv: null // experimental option
+  appEnv: null, // experimental option
 };
 const DEPENDENCIES = [
   {
@@ -76,7 +76,7 @@ function getConfig(options) {
 
   validateConfig(config);
 
-  const configDir = configFilepath? path.dirname(configFilepath) : process.cwd();
+  const configDir = configFilepath ? path.dirname(configFilepath) : process.cwd();
 
   validateDependencies(configDir);
 
@@ -89,11 +89,10 @@ function getConfig(options) {
   }
   if (Array.isArray(config.assetsDir)) {
     assetsDir = [];
-    config.assetsDir.forEach(function (dir) {
+    config.assetsDir.forEach(function(dir) {
       assetsDir.push(path.resolve(configDir, dir));
     });
   }
-
 
   config = merge({}, DEFAULT_CONFIG, config);
   config = merge({}, config, {
@@ -111,26 +110,26 @@ function getConfig(options) {
   });
 
   if (options.port) {
-    config.serverPort = options.port
+    config.serverPort = options.port;
   }
 
   config.serverHostNetwork = utils.getNetworkIp();
 
   if (fs.existsSync(path.resolve(configDir, config.eslintrc))) {
-    config.eslintrc = path.resolve(configDir, config.eslintrc)
+    config.eslintrc = path.resolve(configDir, config.eslintrc);
   } else {
-    config.eslintrc = path.resolve(__dirname, '..', DEFAULT_CONFIG.eslintrc)
+    config.eslintrc = path.resolve(__dirname, '..', DEFAULT_CONFIG.eslintrc);
   }
 
   if (fs.existsSync(path.resolve(configDir, config.postcssrc))) {
-    config.postcssrc = path.resolve(configDir, config.postcssrc)
+    config.postcssrc = path.resolve(configDir, config.postcssrc);
   } else {
-    config.postcssrc = path.resolve(__dirname, '..', DEFAULT_CONFIG.postcssrc)
+    config.postcssrc = path.resolve(__dirname, '..', DEFAULT_CONFIG.postcssrc);
   }
 
   let babelrcPath = path.resolve(configDir, '.babelrc');
   if (fs.existsSync(babelrcPath)) {
-    config.babelrc = babelrcPath
+    config.babelrc = babelrcPath;
   }
 
   if (config.verbose) {
@@ -153,7 +152,7 @@ function findConfig(file) {
   if (file) {
     // Custom config location
 
-    const configFilepath = file[0] === '/'? file : path.join(process.cwd(), file);
+    const configFilepath = file[0] === '/' || file.match(/^[A-Z]:/) ? file : path.join(process.cwd(), file);
     if (!fs.existsSync(configFilepath)) {
       throw new DvhbWebpackError('DvhbWebpack config not found: ' + configFilepath + '.');
     }
@@ -166,8 +165,7 @@ function findConfig(file) {
   let configDir;
   try {
     configDir = findup.sync(__dirname, CONFIG_FILENAME);
-  }
-  catch (exception) {
+  } catch (exception) {
     throw new DvhbWebpackError('DvhbWebpack config not found: ' + CONFIG_FILENAME + '.');
   }
 
@@ -211,20 +209,34 @@ function validateDependency(packageJson, dependency) {
   let major;
   try {
     major = semverUtils.parseRange(version)[0].major;
-  }
-  catch (exception) {
+  } catch (exception) {
     console.log('DvhbWebpack: cannot parse ' + dependency.name + ' version which is "' + version + '".');
     console.log('DvhbWebpack might not work properly. Please report this issue at ' + consts.BUGS_URL);
     console.log();
   }
 
   if (major < dependency.from) {
-    throw new DvhbWebpackError('DvhbWebpack: ' + dependency.name + ' ' + dependency.from + ' is required, ' +
-      'you are using version ' + major + '.');
-  }
-  else if (major > dependency.to) {
-    console.log('DvhbWebpack: ' + dependency.name + ' is supported up to version ' + dependency.to + ', ' +
-      'you are using version ' + major + '.');
+    throw new DvhbWebpackError(
+      'DvhbWebpack: ' +
+        dependency.name +
+        ' ' +
+        dependency.from +
+        ' is required, ' +
+        'you are using version ' +
+        major +
+        '.',
+    );
+  } else if (major > dependency.to) {
+    console.log(
+      'DvhbWebpack: ' +
+        dependency.name +
+        ' is supported up to version ' +
+        dependency.to +
+        ', ' +
+        'you are using version ' +
+        major +
+        '.',
+    );
     console.log('DvhbWebpack might not work properly, report bugs at ' + consts.BUGS_URL);
     console.log();
   }

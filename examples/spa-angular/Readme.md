@@ -3,7 +3,7 @@
 ## Start development mode:
 
 ```
-git clone https://github.com/dvhb/webpack.git
+git clone https://github.com/dvhb/cli.git
 cd webpack/examples/spa-angular
 npm i
 npm run dev

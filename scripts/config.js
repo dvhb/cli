@@ -13,16 +13,14 @@ const getConfig = require('./getConfig');
 let config;
 try {
   config = getConfig(argv);
-}
-catch (err) {
+} catch (err) {
   if (err instanceof DvhbWebpackError) {
     console.error(chalk.bold.red(err.message));
     console.log();
     console.log('Learn how to configure your webpack config:');
     console.log(chalk.underline(consts.DOCS_CONFIG));
     process.exit(1);
-  }
-  else {
+  } else {
     throw err;
   }
 }

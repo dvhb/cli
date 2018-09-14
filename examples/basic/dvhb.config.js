@@ -2,7 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 
 module.exports = {
-  title: '@dvhb/webpack',
+  title: '@dvhb/cli',
 
   extendWebpackConfig(webpackConfig, env) {
     const dir = path.resolve(__dirname, 'src');

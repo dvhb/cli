@@ -22,5 +22,5 @@ module.exports = {
   },
   production: {
     appEnv: 'production',
-  }
+  },
 };

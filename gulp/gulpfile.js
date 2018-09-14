@@ -9,11 +9,11 @@ requireDir('./tasks');
 let tasks = [];
 
 if (!config.staticSite) {
-  tasks.unshift('templates')
+  tasks.unshift('templates');
 }
 
 tasks.push('gzip');
 
-gulp.task('default', gulp.series(tasks), function (cb) {
-  return cb()
+gulp.task('default', gulp.series(tasks), function(cb) {
+  return cb();
 });
