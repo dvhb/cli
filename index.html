@@ -1,4 +1,4 @@
-<html><head><title>@dvhb/webpack project</title><link href="https://dvhb.github.io/webpack/main.b51fb11ceaa02042acc62aeaac2d62eb.css" rel="stylesheet"/><link rel="stylesheet" href="//dvhb.github.io/themes/main.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css"/></head><body class="_mod" data-hello="hello"><div class="b-usage b-content textLg"><a href="https://github.com/dvhb/webpack" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><div class="section"><h1>@dvhb/webpack</h1><div class="form-group form-group_marginSm"><div class="textLg"></div></div><p>Build tool with zero initial configuration</p><p>Just use<nobr class="textGreen">&nbsp;dvhb-webpack init&nbsp;</nobr>for create and develop new project.</p><div class="textLg">Features</div><div class="list"><div class="list__item">Webpack 3</div><div class="list__item">Babel, ES2015 + modules, Stage 0 preset</div><div class="list__item">Optional static views with pug template engine (for static websites)</div></div></div></div><div class="b-content textLg"><div class="section"><h2>Quick Overview</h2><p class="textGreen">npm i @dvhb/webpack -g</p><p class="textGreen">mkdir my-app && cd my-app</p><p class="textGreen">dvhb-webpack init</p></div></div><div class="b-usage b-content"><div class="section"><h1>Configuration</h1>
+<html><head><title>@dvhb/cli project</title><link href="https://dvhb.github.io/webpack/main.b51fb11ceaa02042acc62aeaac2d62eb.css" rel="stylesheet"/><link rel="stylesheet" href="//dvhb.github.io/themes/main.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/atom-one-dark.min.css"/></head><body class="_mod" data-hello="hello"><div class="b-usage b-content textLg"><a href="https://github.com/dvhb/cli" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a><div class="section"><h1>@dvhb/cli</h1><div class="form-group form-group_marginSm"><div class="textLg"></div></div><p>Build tool with zero initial configuration</p><p>Just use<nobr class="textGreen">&nbsp;dvhb init&nbsp;</nobr>for create and develop new project.</p><div class="textLg">Features</div><div class="list"><div class="list__item">Webpack 3</div><div class="list__item">Babel, ES2015 + modules, Stage 0 preset</div><div class="list__item">Optional static views with pug template engine (for static websites)</div></div></div></div><div class="b-content textLg"><div class="section"><h2>Quick Overview</h2><p class="textGreen">npm i @dvhb/cli -g</p><p class="textGreen">mkdir my-app && cd my-app</p><p class="textGreen">dvhb init</p></div></div><div class="b-usage b-content"><div class="section"><h1>Configuration</h1>
 <p>You can change settings in the <code>dvhb.config.js</code> file in your project’s root folder.</p>
 <h2><code>title</code></h2>
 <p>Type: <code>String</code>, default: <code>Dvhb Webpack Starter kit</code></p>
@@ -98,7 +98,7 @@
   /**
    * Extend express server behavior
    *
-   * @param app – instance of the express server running dvhb-webpack
+   * @param app – instance of the express server
    * @param env {String} – environment
    */
   configureServer(app, env) {
@@ -112,11 +112,11 @@
 };
 </code></pre>
 </div></div><div class="b-content b-content"><div class="section"><h1>CLI commands and options</h1>
-<h2><code>dvhb-webpack init</code></h2>
+<h2><code>dvhb init</code></h2>
 <p>Init new project.</p>
-<h2><code>dvhb-webpack server</code></h2>
+<h2><code>dvhb server</code></h2>
 <p>Run dev/prod server.</p>
-<h2><code>dvhb-webpack build</code></h2>
+<h2><code>dvhb build</code></h2>
 <p>Generate a dist bundle for project.</p>
 <h1>CLI options</h1>
 <h2><code>--config &lt;file&gt;</code></h2>
