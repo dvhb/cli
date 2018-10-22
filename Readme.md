@@ -3,7 +3,7 @@
 ## Features
 
 - Webpack
-- Babel, ES2015 + modules, Stage 0 preset
+- Babel 7
 - Optional static views with pug template engine (for static websites)
 
 ## Install in existing project

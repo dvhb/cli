@@ -2,7 +2,7 @@
 
 ## Features
 
-- ES2015 + modules, Babel + Stage 0
+- Babel
 - ESLint
 - Webpack
 - Stylus, svg sprite, svg inline

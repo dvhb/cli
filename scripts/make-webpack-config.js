@@ -154,16 +154,13 @@ module.exports = function(config, env) {
                     {
                       targets: {
                         browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
-                        forceAllTransforms: isProd, // for UglifyJS
                       },
                       modules: false,
                       useBuiltIns: false,
                       debug: false,
+                      forceAllTransforms: isProd, // for UglifyJS
                     },
                   ],
-                  // Experimental ECMAScript proposals
-                  // https://babeljs.io/docs/plugins/#presets-stage-x-experimental-presets-
-                  '@babel/preset-stage-2',
                   // Flow
                   // https://github.com/babel/babel/tree/master/packages/babel-preset-flow
                   '@babel/preset-flow',

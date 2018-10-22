@@ -2,7 +2,7 @@
   "name": "@dvhb/cli",
   "description": "dvhb build tool for project",
   "homepage": "https://github.com/dvhb/cli.git",
-  "version": "1.6.8",
+  "version": "1.6.9-babel.1",
   "author": {
     "name": "Aleksey Subbotenko",
     "url": "https://dvhb.ru/"
@@ -39,12 +39,11 @@
     "not ie < 9"
   ],
   "dependencies": {
-    "@babel/core": "7.0.0-beta.32",
-    "@babel/preset-env": "7.0.0-beta.32",
-    "@babel/preset-flow": "7.0.0-beta.32",
-    "@babel/preset-react": "7.0.0-beta.32",
-    "@babel/preset-stage-2": "7.0.0-beta.32",
-    "@babel/register": "^7.0.0-beta.32",
+    "@babel/core": "7.0.0",
+    "@babel/preset-env": "7.0.0",
+    "@babel/preset-flow": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/register": "^7.0.0",
     "@dvhb/eslint-config": "^1.0.3",
     "babel-eslint": "^8.0.2",
     "babel-loader": "8.0.0-beta.0",
