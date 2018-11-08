@@ -2,6 +2,7 @@
 
 const gulp = require('gulp');
 const pug = require('gulp-pug');
+const touch = require('gulp-touch-cmd');
 const filter = require('gulp-filter');
 const utils = require('../../scripts/utils/utils');
 const config = require('../../scripts/config');
@@ -15,7 +16,8 @@ gulp.task('templates', function() {
         locals: getTemplateLocals(config),
       }),
     )
-    .pipe(gulp.dest(config.distDir));
+    .pipe(gulp.dest(config.distDir))
+    .pipe(touch());
 });
 
 function excludeTemplates(config) {

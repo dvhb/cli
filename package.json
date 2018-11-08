@@ -2,7 +2,7 @@
   "name": "@dvhb/cli",
   "description": "dvhb build tool for project",
   "homepage": "https://github.com/dvhb/cli.git",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "author": {
     "name": "Aleksey Subbotenko",
     "url": "https://dvhb.ru/"
@@ -65,6 +65,7 @@
     "gulp-filter": "^5.0.0",
     "gulp-gzip": "^1.4.0",
     "gulp-pug": "^3.2.0",
+    "gulp-touch-cmd": "^0.0.1",
     "html-webpack-plugin": "^2.29.0",
     "husky": "^0.14.3",
     "ip": "^1.1.5",
