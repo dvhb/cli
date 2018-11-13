@@ -13,7 +13,7 @@
     "node": ">=6"
   },
   "dependencies": {
-    "@dvhb/cli": "1.6.9"
+    "@dvhb/cli": "1.7.0"
   },
   "scripts": {
     "prestart": "npm run build",

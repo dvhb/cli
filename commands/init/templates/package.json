@@ -21,7 +21,7 @@
     "precommit": "lint-staged"
   },
   "devDependencies": {
-    "@dvhb/cli": "1.6.9"
+    "@dvhb/cli": "1.7.0"
   },
   "dependencies": {
     "jquery": "^3.3.1"
