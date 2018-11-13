@@ -3,13 +3,13 @@
 ## Features
 
 - Webpack
-- Babel, ES2015 + modules, Stage 0 preset
+- Babel 7
 - Optional static views with pug template engine (for static websites)
 
 ## Install in existing project
 
 ```bash
-npm install --save-dev @dvhb/cli
+yarn add @dvhb/cli
 ```
 
 Add scripts to package.json
@@ -28,9 +28,9 @@ See basic starter project for more details [examples/basic](https://github.com/d
 ## Workflow
 
 - Add code to `src/`.
-- Build and watch changes in `src/` with `npm start`
+- Build and watch changes in `src/` with `yarn start`
 - Open [localhost:3000](http://localhost:3000)
 
 ## Requirements
 
-- Node.js v5+ and npm
+- Node.js v7+ and npm
