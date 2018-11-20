@@ -2,7 +2,7 @@
   "name": "@dvhb/cli",
   "description": "dvhb build tool for project",
   "homepage": "https://github.com/dvhb/cli.git",
-  "version": "1.6.9-babel.1",
+  "version": "1.6.9-babel.2",
   "author": {
     "name": "Aleksey Subbotenko",
     "url": "https://dvhb.ru/"

@@ -204,7 +204,6 @@ module.exports = function(config, env) {
           exclude: config.svgSpriteDir,
           loader: 'url-loader',
           options: {
-            publicPath: publicPath,
             limit: 4096, // 4kb
           },
         },
