@@ -1,4 +1,4 @@
-# Build tool with zero initial configuration
+# @dvhb/cli – build tool with zero initial configuration [![Build Status](https://travis-ci.org/dvhb/cli.svg?branch=master)](https://travis-ci.org/dvhb/cli)
 
 ## Features
 
