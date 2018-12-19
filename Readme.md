@@ -4,7 +4,7 @@ Build tool with zero initial configuration
 
 ## Features
 
-- Webpack
+- Webpack 3
 - Babel 7
 - Optional static views with pug template engine (for static websites)
 
