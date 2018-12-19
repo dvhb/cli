@@ -30,7 +30,7 @@
     ".postcssrc.js"
   ],
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "browserslist": [
     ">1%",
@@ -129,7 +129,7 @@
     "prestart:static-site": "npm run build:static-site",
     "lint": "./node_modules/.bin/eslint . --ext .js",
     "lint-staged": "lint-staged",
-    "build": "bin/cli.js build --config examples/basic/dvhb.config.js --verbose --app-env=development",
+    "build:basic": "bin/cli.js build --config examples/basic/dvhb.config.js --verbose --app-env=development",
     "build:static-site": "bin/cli.js build --config examples/static-site/dvhb.config.js --verbose --app-env=development",
     "build:spa-angular": "bin/cli.js build --config examples/spa-angular/dvhb.config.js --verbose --app-env=development",
     "gh-pages": "gh-pages -d examples/basic/dist",
