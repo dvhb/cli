@@ -127,6 +127,24 @@ function getConfig(options) {
     config.postcssrc = path.resolve(__dirname, '..', DEFAULT_CONFIG.postcssrc);
   }
 
+  if (fs.existsSync(path.resolve(configDir, config.prettierrc))) {
+    config.prettierrc = path.resolve(configDir, config.prettierrc);
+  } else {
+    config.prettierrc = path.resolve(__dirname, '..', DEFAULT_CONFIG.prettierrc);
+  }
+
+  if (fs.existsSync(path.resolve(configDir, config.stylelintrc))) {
+    config.stylelintrc = path.resolve(configDir, config.stylelintrc);
+  } else {
+    config.stylelintrc = path.resolve(__dirname, '..', DEFAULT_CONFIG.stylelintrc);
+  }
+
+  if (fs.existsSync(path.resolve(configDir, config.stylelintrcFormat))) {
+    config.stylelintrcFormat = path.resolve(configDir, config.stylelintrcFormat);
+  } else {
+    config.stylelintrcFormat = path.resolve(__dirname, '..', DEFAULT_CONFIG.stylelintrcFormat);
+  }
+
   let babelrcPath = path.resolve(configDir, '.babelrc');
   if (fs.existsSync(babelrcPath)) {
     config.babelrc = babelrcPath;

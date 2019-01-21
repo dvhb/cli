@@ -1,0 +1,36 @@
+.tabs {
+    border-bottom: 1px solid $cGrey;
+    display: flex;
+
+    &__item {
+        align-items: center;
+        background: #eaeff1;
+        border: 1px solid color($cGrey l(+15%));
+        border-bottom-color: $cGrey;
+        border-radius: 4px 4px 0 0;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: flex;
+        height: 26px;
+        margin-bottom: -1px;
+        margin-right: 2px;
+        padding: 0 20px 0 15px;
+
+        &:hover {
+            background: color($cGrey l(-5%));
+            border: 1px solid color($cGrey l(-5%));
+            border-bottom-color: $cGrey;
+        }
+    }
+
+    &__right {
+        margin-left: auto;
+    }
+
+    &._active {
+        background: $cWhite;
+        border: 1px solid $cGrey;
+        border-bottom-color: $cWhite;
+        cursor: default;
+    }
+}

@@ -1,0 +1,18 @@
+.list {
+    & + & {
+        margin-top: 2px;
+    }
+
+    &__item {
+        line-height: 22px;
+        padding-left: 20px;
+        position: relative;
+
+        &::before {
+            content: '—';
+            left: 0;
+            position: absolute;
+            top: 0;
+        }
+    }
+}

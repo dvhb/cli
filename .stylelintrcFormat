@@ -1,0 +1,159 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  ],
+  "plugins": [
+    "stylelint-declaration-block-no-ignored-properties",
+    "stylelint-order",
+    "stylelint-declaration-use-variable",
+  ],
+  "ignoreFiles": ["./src/styles/reboot.css"],
+  "defaultSeverity": "error",
+  "rules": {
+    "plugin/declaration-block-no-ignored-properties": true,
+    "sh-waqar/declaration-use-variable": [["/color/", { ignoreValues: ["transparent", "inherit"] }]],
+    "at-rule-empty-line-before": [
+      "always",
+      {
+        except: ["blockless-after-same-name-blockless", "first-nested"],
+        ignore: ["after-comment"]
+      }
+    ],
+    "block-no-empty": true,
+    "color-hex-length": "long",
+    "color-no-invalid-hex": true,
+    "comment-empty-line-before": [
+      "always",
+      {
+        except: ["first-nested"],
+        ignore: ["stylelint-commands"]
+      }
+    ],
+    "comment-no-empty": true,
+    "declaration-block-no-duplicate-properties": true,
+    "declaration-block-no-shorthand-property-overrides": true,
+    "declaration-block-single-line-max-declarations": 1,
+    "declaration-empty-line-before": [
+      "always",
+      {
+        except: ["after-declaration", "first-nested"],
+        ignore: ["after-comment", "inside-single-line-block"]
+      }
+    ],
+    "declaration-no-important": true,
+    "declaration-property-value-blacklist": {
+      "/^margin/": ["initial"],
+      "/^padding/": ["initial"],
+      "flex-grow": ["initial"],
+    },
+    "function-calc-no-unspaced-operator": true,
+    "function-linear-gradient-no-nonstandard-direction": true,
+    "function-whitespace-after": "always",
+    "length-zero-no-unit": true,
+    "max-nesting-depth": 3,
+    "no-duplicate-selectors": true,
+    "number-leading-zero": "always",
+    "property-no-unknown": true,
+    "rule-empty-line-before": [
+      "always-multi-line",
+      {
+        except: ["first-nested"],
+        ignore: ["after-comment"]
+      }
+    ],
+    "selector-max-compound-selectors": 2,
+    "selector-max-id": 0,
+    "selector-max-type": 0,
+    "selector-max-universal": 0,
+    "selector-pseudo-element-no-unknown": true,
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global", "local"]
+      }
+    ],
+    "selector-pseudo-element-colon-notation": "double",
+    "shorthand-property-no-redundant-values": true,
+    "string-no-newline": true,
+    "string-quotes": "single",
+    "unit-blacklist": ["em", "rem"],
+    "order/properties-alphabetical-order": true,
+    "order/order": [
+      "declarations",
+      {
+        "type": "at-rule",
+        "name": "supports"
+      },
+      {
+        "type": "at-rule",
+        "name": "media",
+        "parameter": \(--ie\)
+      },
+      {
+        "type": "at-rule",
+        "name": "media",
+        "parameter": \(--retina\)
+      },
+      {
+        "type": "at-rule",
+        "name": "media",
+        "parameter": \(--mobile-large\)
+      },
+      {
+        "type": "at-rule",
+        "name": "media",
+        "parameter": \(--tablet\)
+      },
+      {
+        "type": "at-rule",
+        "name": "media",
+        "parameter": \(--tablet-large\)
+      },
+      {
+        "type": "at-rule",
+        "name": "media",
+        "parameter": \(--desktop\)
+      },
+      {
+        "type": "at-rule",
+        "name": "media",
+        "parameter": \(--desktop-large\)
+      },
+      {
+        "type": "at-rule",
+        "name": "media",
+        "parameter": \(--desktop-extra-large\)
+      },
+      {
+        "type": "rule",
+        "selector": "^&::(before|after),"
+      },
+      {
+        "type": "rule",
+        "selector": "^&::before"
+      },
+      {
+        "type": "rule",
+        "selector": "^&::after"
+      },
+      {
+        "type": "rule",
+        "selector": "^&:\\w"
+      },
+      {
+        "type": "rule",
+        "selector": "^& \\+ &"
+      },
+      {
+        "type": "rule",
+        "selector": "^&_"
+      },
+      {
+        "type": "rule",
+        "selector": "^."
+      },
+      "rules"
+    ],
+  },
+}

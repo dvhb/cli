@@ -8,7 +8,7 @@ block extra_styles
         body{
             background: #f5f5f5;
         }
-        .formGroup{
+        .spacerXlg{
             background: #fff;
             box-shadow: 0 3px 5px 0 rgba(0,0,0, .1);
             border-radius: 4px;
@@ -19,62 +19,62 @@ block content
 
     .section
         .vsection
-            .formGroup
+            .spacerXlg
                 h1 Header 1
                 h2 Header 2
                 h3 Header 3
 
 
-            .formGroup
+            .spacerXlg
                 p Paragraph
 
 
-            .formGroup
+            .spacerXlg
                 .aligner
                     div Aligner
 
                     .aligner__right .aligner__right
 
 
-            .formGroup
-                h2.formItem Badges
+            .spacerXlg
+                h2.spacer Badges
                 .aligner
-                    .formItemInline
+                    .spacerInline
                         .badge .badge
 
-                    .formItemInline
+                    .spacerInline
                         .badge.badge_green .badge.badge_green
 
-                    .formItemInline
+                    .spacerInline
                         .badge.badge_red .badge.badge_red
 
 
-            .formGroup
-                h2.formItem Buttons
-                .formItem
-                    .formItemInline
+            .spacerXlg
+                h2.spacer Buttons
+                .spacer
+                    .spacerInline
                         .btn .btn
 
-                    .formItemInline
+                    .spacerInline
                         .btn.btn_red .btn.btn_red
 
-                    .formItemInline
+                    .spacerInline
                         .btn.btn_transparent .btn.btn_transparent
 
-                    .formItemInline
+                    .spacerInline
                         .btn.btn_transparentRed .btn.btn_transparentRed
 
-                    .formItemInline
+                    .spacerInline
                         .btn._disabled .btn._disabled
 
                 div
                     .btn.btn.btn_block .btn.btn_block
 
 
-            .formGroup
-                h2.formItem Buttons Group
+            .spacerXlg
+                h2.spacer Buttons Group
 
-                .formItem
+                .spacer
                     .btnGroup
                         .btnGroup__item Button 1
                         .btnGroup__item._active Button 2
@@ -86,21 +86,21 @@ block content
                     .btnGroup__item Button 3
 
 
-            .formGroup
-                h2.formItem Checkbox & Radio
+            .spacerXlg
+                h2.spacer Checkbox & Radio
 
-                .formItem
+                .spacer
                     +checkbox('checkbox')
 
-                .formItem
+                .spacer
                     +checkbox('checkbox slider', 'checkbox_slider')
 
                 div
                     +radio('radio')
 
 
-            .formGroup
-                h2.formItem Flex
+            .spacerXlg
+                h2.spacer Flex
 
                 .flex(style="height: 300px;")
                     .flex__bar .flex__bar
@@ -110,8 +110,8 @@ block content
                             div .flex__scroll
 
 
-            .formGroup
-                h2.formItem Form Slider
+            .spacerXlg
+                h2.spacer Form Slider
 
                 .formSlider
                     .formSlider__line
@@ -122,67 +122,50 @@ block content
                     .formSlider__label.formSlider__label_last(style="left: 100%;") 100
 
 
-            .formGroup
-                h2.formItem Grid
+            //.spacerXlg
+                h2.spacer Grid
 
                 div Grid from <a target="_blank" href="http://getbootstrap.com/docs/3.3/css/#grid">bootsrap 3</a>
 
 
-            .formGroup
-                h2.formItem hr
+            .spacerXlg
+                h2.spacer hr
 
                 .hr
 
 
-            .formGroup
-                h2.formItem Icons
+            .spacerXlg
+                h2.spacer Icons
 
-                .formItem
+                .spacer
                     +icon("icon_cornerDown")
 
-                h1.formItem.textRed
+                h1.spacer.textRed
                     +icon("icon_cornerDown")
 
                 h2.textGreen
                     +icon("icon_cornerDown")
 
 
-            .formGroup
-                h2.formItem Input & Textarea
+            .spacerXlg
+                h2.spacer Input & Textarea
 
-                .formItem
+                .spacer
                     .formLabel .formLabel
                     input.input(placeholder=".input")
                     .formDescr .formDescr
 
-                .formItem
+                .spacer
                     input.input._disabled(placeholder=".input._disabled", disabled)
 
-                .formItem
+                .spacer
                     input.input._error(placeholder=".input._error")
 
                 textarea.textarea(placeholder=".textarea")
 
 
-            .formGroup
-                h2.formItem Input & Textarea
-
-                .formItem
-                    .formLabel .formLabel
-                    input.input(placeholder=".input")
-                    .formDescr .formDescr
-
-                .formItem
-                    input.input._disabled(placeholder=".input._disabled", disabled)
-
-                .formItem
-                    input.input._error(placeholder=".input._error")
-
-                textarea.textarea(placeholder=".textarea")
-
-
-            .formGroup
-                h2.formItem List
+            .spacerXlg
+                h2.spacer List
 
                 .list
                     .list__item .list__item
@@ -191,8 +174,8 @@ block content
                     .list__item .list__item
 
 
-            .formGroup
-                h2.formItem Popover
+            .spacerXlg
+                h2.spacer Popover
 
                 div(style="height: 80px;")
                     .popover
@@ -200,29 +183,29 @@ block content
                         .popover__content popover content
 
 
-            .formGroup
-                h2.formItem Table
+            .spacerXlg
+                h2.spacer Table
 
                 table.table.table_hover
-                    tr
-                        th Table header
-                        th Table header
+                    tr.table__tr
+                        th.table__th Table header
+                        th.table__th Table header
 
-                    tr
-                        td Table cell
-                        td Table cell
+                    tr.table__tr
+                        td.table__td Table cell
+                        td.table__td Table cell
 
-                    tr
-                        td Table cell
-                        td Table cell
+                    tr.table__tr
+                        td.table__td Table cell
+                        td.table__td Table cell
 
-                    tr
-                        td Table cell
-                        td Table cell
+                    tr.table__tr
+                        td.table__td Table cell
+                        td.table__td Table cell
 
 
-            .formGroup
-                h2.formItem Tabs
+            .spacerXlg
+                h2.spacer Tabs
 
                 .tabs
                     .tabs__item Tab Item
@@ -230,8 +213,8 @@ block content
                     .tabs__item Tab Item
 
 
-            .formGroup
-                h2.formItem Tooltip
+            .spacerXlg
+                h2.spacer Tooltip
 
                 div(style="height: 40px;")
                     .tooltip._show Tooltip
