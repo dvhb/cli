@@ -36,6 +36,9 @@ const DEFAULT_CONFIG = {
   babelrc: undefined,
   modernizrrc: 'src/.modernizrrc',
   postcssrc: '.postcssrc.js',
+  prettierrc: '.prettierrc',
+  stylelintrc: '.stylelintrc',
+  stylelintrcFormat: '.stylelintrcFormat',
   templateVars: {},
   gzip: {
     src: '**/*.{html,xml,json,css,js,js.map,css.map}',

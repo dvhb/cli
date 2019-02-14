@@ -78,6 +78,7 @@
     "modernizr": "^3.3.1",
     "modernizr-loader": "^1.0.1",
     "postcss": "^7.0.13",
+    "postcss-bootstrap-4-grid": "^1.0.3",
     "postcss-color-function": "^4.0.1",
     "postcss-comment": "^2.0.0",
     "postcss-extend": "^1.0.5",

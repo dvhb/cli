@@ -25,6 +25,26 @@ module.exports = ({ file, options, env }) => ({
     // https://github.com/travco/postcss-extend
     require('postcss-extend')(),
 
+    // https://github.com/johnwatkins0/postcss-bootstrap-4-grid
+    require('postcss-bootstrap-4-grid')({
+      gridColumns: 12,
+      gridGutterWidth: '24px',
+      containerMaxWidths: {
+        sm: '540px',
+        md: '720px',
+        lg: '960px',
+        xl: '1140px'
+      },
+      gridBreakpoints: {
+        sm: '576px',
+        md: '768px',
+        lg: '992px',
+        xl: '1200px'
+      },
+      doOrderClasses: true,
+      doOffsetClasses: true
+    }),
+
     require('postcss-svg')({
       dirs: [options.svg.paths]
     })
