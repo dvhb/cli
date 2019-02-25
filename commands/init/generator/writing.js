@@ -10,6 +10,9 @@ module.exports = function() {
     '.babelrc',
     'LICENSE',
     'src/.modernizrrc',
+    '.stylelintrc',
+    '.stylelintrcFormat',
+    '.prettierrc',
   ];
   const copyTemplates = ['package.json', 'README.md', 'dvhb.config.js'];
 
