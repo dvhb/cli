@@ -318,7 +318,7 @@ module.exports = function(config, env) {
       module: {
         rules: [
           {
-            test: /\.css$/,
+            test: /\.(css|pcss)$/,
             include: config.sourceDir,
             use: ExtractTextPlugin.extract({
               fallback: 'style',
@@ -361,7 +361,7 @@ module.exports = function(config, env) {
             use: ['style', 'css', postcssLoader, 'stylus'],
           },
           {
-            test: /\.css$/,
+            test: /\.(css|pcss)$/,
             include: config.sourceDir,
             use: ['style', 'css', postcssLoader],
           },

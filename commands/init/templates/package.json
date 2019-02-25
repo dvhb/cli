@@ -10,6 +10,11 @@
     "*.{js,jsx}": [
       "eslint --no-ignore --fix",
       "git add --force"
+    ],
+    "*.pcss": [
+      "prettier --write",
+      "stylelint --fix --config ./.stylelintrcFormat",
+      "git add"
     ]
   },
   "scripts": {
@@ -18,7 +23,9 @@
     "build:dev": "dvhb build --app-env=development",
     "build:prod": "dvhb build --app-env=production",
     "update": "npm i --save-dev @dvhb/cli@latest",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "lint:css": "stylelint \"src/styles/**/*.pcss\" --config ./.stylelintrcFormat",
+    "format:css": "prettier --write \"src/styles/**/*.pcss\" && stylelint \"src/styles/**/*.pcss\" --fix --config ./.stylelintrcFormat"
   },
   "devDependencies": {
     "@dvhb/cli": "1.7.0"

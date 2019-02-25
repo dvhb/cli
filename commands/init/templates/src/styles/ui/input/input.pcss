@@ -1,0 +1,36 @@
+.input {
+    -webkit-appearance: none;
+    background: #f7f9fc;
+    border: 1px solid color($cGrey a(0.5));
+    border-radius: 2px;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: $cBlack;
+    display: block;
+    font-family: $font;
+    font-size: 13px;
+    font-weight: normal;
+    height: 40px;
+    outline: none;
+    padding: 0 12px;
+    text-overflow: ellipsis;
+    width: 100%;
+
+    &:focus {
+        border-color: $cGreen;
+    }
+
+    &::placeholder {
+        color: $cBlack;
+        opacity: 0.5;
+    }
+
+    &._disabled,
+    &[disabled] {
+        opacity: 0.5;
+    }
+
+    &._error {
+        border-color: $cRed;
+    }
+}
