@@ -207,9 +207,7 @@ module.exports = function(config, env) {
     optimization: {
       splitChunks: {
         name: 'vendor',
-        minChunks: function(module) {
-          return /node_modules/.test(module.resource);
-        },
+        minChunks: 1,
       },
     },
   };
