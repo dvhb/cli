@@ -6,7 +6,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -83,6 +83,7 @@ module.exports = function(config, env) {
   };
 
   let webpackConfig = {
+    mode: env,
     output: {
       path: config.distDir,
       filename: '[name].js',
@@ -146,8 +147,8 @@ module.exports = function(config, env) {
                     {
                       targets: {
                         browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
-                        forceAllTransforms: isProd, // for UglifyJS
                       },
+                      forceAllTransforms: isProd, // for UglifyJS
                       modules: false,
                       useBuiltIns: false,
                       debug: false,
@@ -280,29 +281,25 @@ module.exports = function(config, env) {
   if (isProd) {
     webpackConfig = merge(webpackConfig, {
       output: {
-        filename: '[name].[contenthash].js',
-        chunkFilename: '[name].[contenthash].js',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].js',
       },
       entry: getEntries(config, env),
       devtool: false,
       cache: false,
       plugins: [
-        new WebpackCleanupPlugin({
-          quiet: true,
-        }),
+        new CleanWebpackPlugin(),
         new UglifyJsPlugin({
           parallel: true,
           uglifyOptions: {
-            compress: {
-              warnings: false,
-            },
+            warnings: false,
             output: {
               comments: false,
             },
             mangle: false,
           },
         }),
-        new ExtractTextPlugin('[name].[contenthash].css'),
+        new ExtractTextPlugin('[name].[hash].css'),
         new BundleAnalyzerPlugin({
           analyzerMode: config.appEnv === 'development' ? 'static' : 'disable',
           openAnalyzer: false,
