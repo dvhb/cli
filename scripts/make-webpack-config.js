@@ -6,7 +6,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -114,7 +113,6 @@ module.exports = function(config, env) {
           NODE_ENV: JSON.stringify(env),
         },
       }),
-      new WebpackMd5Hash(),
       new ManifestPlugin({
         publicPath: publicPath,
       }),
@@ -282,8 +280,8 @@ module.exports = function(config, env) {
   if (isProd) {
     webpackConfig = merge(webpackConfig, {
       output: {
-        filename: '[name].[chunkhash].js',
-        chunkFilename: '[name].[chunkhash].js',
+        filename: '[name].[contenthash].js',
+        chunkFilename: '[name].[contenthash].js',
       },
       entry: getEntries(config, env),
       devtool: false,
