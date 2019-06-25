@@ -114,12 +114,6 @@ module.exports = function(config, env) {
           NODE_ENV: JSON.stringify(env),
         },
       }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks: function(module) {
-          return /node_modules/.test(module.resource);
-        },
-      }),
       new WebpackMd5Hash(),
       new ManifestPlugin({
         publicPath: publicPath,
@@ -209,6 +203,14 @@ module.exports = function(config, env) {
           },
         },
       ],
+    },
+    optimization: {
+      splitChunks: {
+        name: 'vendor',
+        minChunks: function(module) {
+          return /node_modules/.test(module.resource);
+        },
+      },
     },
   };
 
