@@ -6,8 +6,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
-const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -84,6 +83,7 @@ module.exports = function(config, env) {
   };
 
   let webpackConfig = {
+    mode: env,
     output: {
       path: config.distDir,
       filename: '[name].js',
@@ -114,13 +114,6 @@ module.exports = function(config, env) {
           NODE_ENV: JSON.stringify(env),
         },
       }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor',
-        minChunks: function(module) {
-          return /node_modules/.test(module.resource);
-        },
-      }),
-      new WebpackMd5Hash(),
       new ManifestPlugin({
         publicPath: publicPath,
       }),
@@ -154,16 +147,13 @@ module.exports = function(config, env) {
                     {
                       targets: {
                         browsers: ['>1%', 'last 4 versions', 'Firefox ESR', 'not ie < 9'],
-                        forceAllTransforms: isProd, // for UglifyJS
                       },
+                      forceAllTransforms: isProd, // for UglifyJS
                       modules: false,
                       useBuiltIns: false,
                       debug: false,
                     },
                   ],
-                  // Experimental ECMAScript proposals
-                  // https://babeljs.io/docs/plugins/#presets-stage-x-experimental-presets-
-                  '@babel/preset-stage-2',
                   // Flow
                   // https://github.com/babel/babel/tree/master/packages/babel-preset-flow
                   '@babel/preset-flow',
@@ -212,6 +202,12 @@ module.exports = function(config, env) {
           },
         },
       ],
+    },
+    optimization: {
+      splitChunks: {
+        name: 'vendor',
+        minChunks: 1,
+      },
     },
   };
 
@@ -285,29 +281,25 @@ module.exports = function(config, env) {
   if (isProd) {
     webpackConfig = merge(webpackConfig, {
       output: {
-        filename: '[name].[chunkhash].js',
-        chunkFilename: '[name].[chunkhash].js',
+        filename: '[name].[hash].js',
+        chunkFilename: '[name].[hash].js',
       },
       entry: getEntries(config, env),
       devtool: false,
       cache: false,
       plugins: [
-        new WebpackCleanupPlugin({
-          quiet: true,
-        }),
+        new CleanWebpackPlugin(),
         new UglifyJsPlugin({
           parallel: true,
           uglifyOptions: {
-            compress: {
-              warnings: false,
-            },
+            warnings: false,
             output: {
               comments: false,
             },
             mangle: false,
           },
         }),
-        new ExtractTextPlugin('[name].[contenthash].css'),
+        new ExtractTextPlugin('[name].[hash].css'),
         new BundleAnalyzerPlugin({
           analyzerMode: config.appEnv === 'development' ? 'static' : 'disable',
           openAnalyzer: false,
