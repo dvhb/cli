@@ -1,0 +1,10 @@
+.section {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding-right: 30px;
+    padding-left: 30px;
+
+    &_short {
+        max-width: 1000px;
+    }
+}

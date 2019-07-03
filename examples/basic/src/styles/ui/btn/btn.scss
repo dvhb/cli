@@ -1,0 +1,75 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-width: 140px;
+    max-width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    overflow: hidden;
+    color: $cWhite;
+    font-weight: 500;
+    font-size: 11px;
+    font-family: $font;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    background: $cGreen;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition-timing-function: ease-in-out;
+    transition-duration: 0.4s;
+    transition-property: box-shadow, color, background, border-color;
+
+    &:hover {
+        color: $cWhite;
+        text-decoration: none;
+        background: color($cGreen l(-10%));
+        border-color: color($cGreen l(-10%));
+        box-shadow: 0 3px 5px 0 color($cGreen a(0.5));
+    }
+
+    &_block {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+        padding: 0 10px;
+    }
+
+    &_red {
+        background: $cRed;
+        border-color: $cRed;
+
+        &:hover {
+            color: $cWhite;
+            background: $cRed;
+            border-color: $cRed;
+            box-shadow: 0 3px 5px 0 rgba($cRed, 0.5);
+        }
+    }
+
+    &_transparent {
+        color: $cGreen;
+        background: transparent;
+        border: 1px solid currentColor;
+        box-shadow: 0 0 0 1px rgba($cGreen, 0.25) inset;
+    }
+
+    &_transparentRed {
+        color: $cRed;
+        background: transparent;
+        border: 1px solid currentColor;
+        box-shadow: 0 0 0 1px rgba($cRed, 0.25) inset;
+    }
+
+    &._disabled,
+    &[disabled] {
+        cursor: default;
+        opacity: 0.5;
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,40 @@
+.btnGroup {
+    display: inline-flex;
+    box-sizing: border-box;
+    height: 40px;
+    overflow: hidden;
+    border: 1px solid $cGreen;
+    border-radius: 2px;
+
+    &__item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10px;
+        background: transparent;
+        cursor: pointer;
+
+        &:hover {
+            color: $cWhite;
+            background: $cGreen;
+        }
+
+        & + & {
+            border-left: 1px solid $cGreen;
+        }
+
+        &._active {
+            color: $cWhite;
+            background: $cGreen;
+            cursor: default;
+        }
+    }
+
+    &_block {
+        display: flex;
+
+        .btnGroup__item {
+            flex: 1 0 0;
+        }
+    }
+}

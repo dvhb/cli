@@ -325,6 +325,14 @@ module.exports = function(config, env) {
               use: ['css', 'csso', postcssLoader, 'stylus'],
             }),
           },
+          {
+            test: /\.scss$/,
+            include: config.sourceDir,
+            use: ExtractTextPlugin.extract({
+              fallback: 'style',
+              use: ['css', 'csso', postcssLoader, 'sass'],
+            }),
+          },
         ],
       },
     });
@@ -356,6 +364,11 @@ module.exports = function(config, env) {
             test: /\.(css|pcss)$/,
             include: config.sourceDir,
             use: ['style', 'css', postcssLoader],
+          },
+          {
+            test: /\.scss$/,
+            include: config.sourceDir,
+            use: ['style', 'css', postcssLoader, 'sass'],
           },
         ],
       },
