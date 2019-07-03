@@ -1,0 +1,29 @@
+.badge {
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    max-width: 100%;
+    height: 24px;
+    padding: 0 16px;
+    color: $cWhite;
+    font-size: 10px;
+    text-transform: uppercase;
+    background: $cGrey;
+    border: 1px solid transparent;
+    border-radius: 2px;
+
+    &_red {
+        background: $cRed;
+    }
+
+    &_green {
+        background: $cGreen;
+    }
+
+    &__text {
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+}

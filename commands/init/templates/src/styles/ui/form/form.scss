@@ -1,0 +1,43 @@
+.formDescr {
+    padding-top: 8px;
+    line-height: 16px;
+}
+
+.formLabel {
+    display: flex;
+    align-items: center;
+    min-height: 16px;
+    margin-bottom: 4px;
+    color: color($cBlack a(0.6));
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 16px;
+    text-transform: uppercase;
+
+    &_inline {
+        display: inline-block;
+        margin-right: 20px;
+        margin-bottom: 0;
+        vertical-align: baseline;
+    }
+
+    &_noMargin {
+        margin: 0;
+    }
+}
+
+.formInputWithIcon {
+    position: relative;
+    display: block;
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        z-index: 1;
+        color: $cGrey;
+        font-size: 16px;
+        transform: translateY(-50%);
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,38 @@
+.popover {
+    position: absolute;
+    max-width: 300px;
+    color: $cBlack;
+    background: $cWhite;
+    border-radius: 8px;
+    filter: drop-shadow(0 8px 15px rgba($cBlack, 0.5));
+
+    &::before {
+        position: absolute;
+        top: 50%;
+        left: -7px;
+        width: 18px;
+        height: 18px;
+        background: $cWhite;
+        transform: translateY(-50%) rotate(45deg);
+        content: '';
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        font-size: 8px;
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    &__content {
+        padding: 20px 25px;
+    }
+}

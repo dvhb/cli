@@ -1,0 +1,16 @@
+/* stylelint-disable unit-blacklist */
+.icon {
+    position: relative;
+    display: inline-block;
+    flex: none;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+
+    &_lg {
+        font-size: 24px;
+    }
+}
+/* stylelint-enable */

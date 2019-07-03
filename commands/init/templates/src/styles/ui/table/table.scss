@@ -1,0 +1,43 @@
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    &_hover {
+        .table__tr {
+            &:hover {
+                background: color($cGrey l(+30%));
+            }
+        }
+    }
+
+    &__overflowText {
+        position: absolute;
+        top: 3px;
+        left: 5px;
+        max-width: calc(100% - 10px);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .table__th,
+    .table__td {
+        position: relative;
+        padding: 3px 5px;
+        line-height: 20px;
+        vertical-align: middle;
+        background-clip: padding-box;
+    }
+
+    .table__th {
+        color: $cGrey;
+        font-weight: normal;
+        text-align: left;
+        background: $cWhite;
+        border-bottom: 1px solid $cGrey;
+    }
+
+    .table__td {
+        border-bottom: 1px solid #d5e0ed;
+    }
+}

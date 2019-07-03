@@ -1,6 +1,7 @@
 {
   "extends": [
     "stylelint-config-standard",
+    "stylelint-config-rational-order",
     "stylelint-config-prettier"
   ],
   "plugins": [
@@ -20,6 +21,9 @@
         ignore: ["after-comment"]
       }
     ],
+    "at-rule-no-unknown": [true, {
+      "ignoreAtRules": ["function", "if", "each", "include", "mixin"]
+    }],
     "block-no-empty": true,
     "color-hex-length": "long",
     "color-no-invalid-hex": true,
@@ -78,7 +82,6 @@
     "string-no-newline": true,
     "string-quotes": "single",
     "unit-blacklist": ["em", "rem"],
-    "order/properties-alphabetical-order": true,
     "order/order": [
       "declarations",
       {
@@ -154,6 +157,6 @@
         "selector": "^."
       },
       "rules"
-    ],
-  },
+    ]
+  }
 }

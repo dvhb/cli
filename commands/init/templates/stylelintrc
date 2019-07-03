@@ -1,7 +1,7 @@
 {
   "plugins": [
     "stylelint-declaration-block-no-ignored-properties",
-    "stylelint-declaration-use-variable",
+    "stylelint-declaration-use-variable"
   ],
   "defaultSeverity": "error",
   "rules": {
@@ -16,7 +16,7 @@
     "declaration-property-value-blacklist": {
       "/^margin/": ["initial"],
       "/^padding/": ["initial"],
-      "flex-grow": ["initial"],
+      "flex-grow": ["initial"]
     },
     "function-calc-no-unspaced-operator": true,
     "function-linear-gradient-no-nonstandard-direction": true,
@@ -36,6 +36,6 @@
     ],
     "shorthand-property-no-redundant-values": true,
     "string-no-newline": true,
-    "unit-blacklist": ["em", "rem"],
-  },
+    "unit-blacklist": ["em", "rem"]
+  }
 }

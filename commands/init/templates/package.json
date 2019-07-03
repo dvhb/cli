@@ -24,8 +24,8 @@
     "build:prod": "dvhb build --app-env=production",
     "update": "npm i --save-dev @dvhb/cli@latest",
     "precommit": "lint-staged",
-    "lint:css": "stylelint \"src/styles/**/*.pcss\" --config ./.stylelintrcFormat",
-    "format:css": "prettier --write \"src/styles/**/*.pcss\" && stylelint \"src/styles/**/*.pcss\" --fix --config ./.stylelintrcFormat"
+    "lint:css": "stylelint \"src/styles/**/*.scss\" --config ./.stylelintrcFormat",
+    "format:css": "prettier --write \"src/styles/**/*.scss\" && stylelint \"src/styles/**/*.scss\" --fix --config ./.stylelintrcFormat"
   },
   "devDependencies": {
     "@dvhb/cli": "1.7.2"

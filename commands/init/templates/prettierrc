@@ -1,7 +1,7 @@
 {
   "overrides": [
     {
-      "files": "*.pcss",
+      "files": "*.scss",
       "options": {
         "singleQuote": true,
         "tabWidth": 4,

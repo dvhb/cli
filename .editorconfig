@@ -16,5 +16,5 @@ indent_size = 4
 indent_style = space
 indent_size = 2
 
-[*.styl]
+[*.{styl,scss,postcss,css}]
 indent_size = 4
