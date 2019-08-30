@@ -13,11 +13,13 @@ before_install:
 install:
   - yarn
 script:
-  - 'if [ $TEST_SUITE = "basic" ]; then yarn build:basic; fi'
-  - 'if [ $TEST_SUITE = "static-site" ]; then yarn build:static-site; fi'
-  - 'if [ $TEST_SUITE = "spa-angular" ]; then yarn build:spa-angular; fi'
+  - 'if [ $TEST_SUITE = "build:basic" ]; then yarn build:basic; fi'
+  - 'if [ $TEST_SUITE = "build:static-site" ]; then yarn build:static-site; fi'
+  - 'if [ $TEST_SUITE = "build:spa-angular" ]; then yarn build:spa-angular; fi'
+  - 'if [ $TEST_SUITE = "test:init" ]; then yarn test:init; fi'
 env:
   matrix:
-    - TEST_SUITE=basic
-    - TEST_SUITE=static-site
-    - TEST_SUITE=spa-angular
+    - TEST_SUITE=build:basic
+    - TEST_SUITE=build:static-site
+    - TEST_SUITE=build:spa-angular
+    - TEST_SUITE=test:init
