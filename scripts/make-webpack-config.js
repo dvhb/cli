@@ -10,7 +10,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const TerserPlugin = require('terser-webpack-plugin');
 const merge = require('webpack-merge');
 const utils = require('./utils/utils');
 const prettyjson = require('prettyjson');
@@ -316,9 +315,6 @@ module.exports = function(config, env) {
             }),
           },
         ],
-      },
-      optimization: {
-        minimizer: [new TerserPlugin()],
       },
     });
   } else {

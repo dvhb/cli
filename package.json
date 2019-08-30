@@ -107,7 +107,6 @@
     "svg-sprite-loader": "^4.1.6",
     "svgo": "^1.2.2",
     "svgo-loader": "^2.1.0",
-    "terser-webpack-plugin": "^1.4.1",
     "url-loader": "^2.0.0",
     "webpack": "^4.35.0",
     "webpack-bundle-analyzer": "^3.3.2",
