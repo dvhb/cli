@@ -2,7 +2,7 @@
   "name": "@dvhb/cli",
   "description": "dvhb build tool for project",
   "homepage": "https://github.com/dvhb/cli.git",
-  "version": "1.8.0",
+  "version": "1.8.1",
   "author": {
     "name": "Aleksey Subbotenko",
     "url": "https://dvhb.com/"
@@ -106,7 +106,7 @@
     "svg-sprite-loader": "^4.1.6",
     "svgo": "^1.2.2",
     "svgo-loader": "^2.1.0",
-    "uglifyjs-webpack-plugin": "^2.1.3",
+    "terser-webpack-plugin": "^1.4.1",
     "url-loader": "^2.0.0",
     "webpack": "^4.35.0",
     "webpack-bundle-analyzer": "^3.3.2",
@@ -115,14 +115,14 @@
     "webpack-hot-middleware": "^2.20.0",
     "webpack-manifest-plugin": "^2.0.4",
     "webpack-merge": "^4.1.0",
-    "yeoman-environment": "^2.3.4",
-    "yeoman-generator": "^4.0.1"
+    "yeoman-environment": "1.6.3",
+    "yeoman-generator": "0.24.1"
   },
   "devDependencies": {
     "cross-env": "~5.2.0",
     "gh-pages": "~2.0.1",
     "mock-require": "~3.0.3",
-    "yeoman-test": "^2.0.0"
+    "yeoman-test": "^1.5.0"
   },
   "scripts": {
     "init": "bin/cli.js init",

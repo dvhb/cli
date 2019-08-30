@@ -10,7 +10,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const merge = require('webpack-merge');
 const utils = require('./utils/utils');
 const prettyjson = require('prettyjson');
@@ -289,16 +289,6 @@ module.exports = function(config, env) {
       cache: false,
       plugins: [
         new CleanWebpackPlugin(),
-        new UglifyJsPlugin({
-          parallel: true,
-          uglifyOptions: {
-            warnings: false,
-            output: {
-              comments: false,
-            },
-            mangle: false,
-          },
-        }),
         new ExtractTextPlugin('[name].[hash].css'),
         new BundleAnalyzerPlugin({
           analyzerMode: config.appEnv === 'development' ? 'static' : 'disable',
@@ -326,6 +316,9 @@ module.exports = function(config, env) {
             }),
           },
         ],
+      },
+      optimization: {
+        minimizer: [new TerserPlugin()],
       },
     });
   } else {
