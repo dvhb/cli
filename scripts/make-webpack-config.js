@@ -161,7 +161,7 @@ module.exports = function(config, env) {
                   // https://github.com/babel/babel/tree/master/packages/babel-preset-react
                   ['@babel/preset-react', { development: !isProd }],
                 ],
-                plugins: ['lodash'],
+                plugins: ['@babel/plugin-proposal-class-properties', 'lodash'],
               },
             },
             'eslint',
