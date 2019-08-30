@@ -204,8 +204,15 @@ module.exports = function(config, env) {
     },
     optimization: {
       splitChunks: {
-        name: 'vendor',
-        minChunks: 1,
+        cacheGroups: {
+          vendor: {
+            test: /node_modules/,
+            chunks: 'initial',
+            name: 'vendor',
+            priority: 10,
+            enforce: true,
+          },
+        },
       },
     },
   };
